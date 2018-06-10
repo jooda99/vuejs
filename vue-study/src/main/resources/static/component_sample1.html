@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<div id="app1">
+		<global-component></global-component>	
+		<local-component></local-component>
+	</div>
+	<br><br><br><br><br><br>
+	<div id="app2">
+		<global-component></global-component>
+		<local-component></local-component>
+	</div>
+
+	<script src="/js/vue.js"></script>
+	<script>
+	
+		Vue.component("global-component", {
+			template: "<div>전역 템플릿입니다.</div>"
+		});
+		
+		var comp = {
+			template: "<div>지역 템플릿입니다.</div>"
+		}
+		
+		new Vue({
+			el: "#app1",
+			components: {
+				"local-component": comp
+			}
+			
+		});
+		
+		new Vue({
+			el: "#app2",
+			components: {
+				"local-component": comp
+			}
+		});
+	
+	</script>
+
+
+</body>
+</html>

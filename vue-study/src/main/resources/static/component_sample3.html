@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+	<div id="app">
+		<comp v-on:callparent="parent_method"></comp>
+	</div>
+
+	<script src="/js/vue.js"></script>
+	<script>
+		var comp = {
+			template: "<button v-on:click='btnclick'>button</button>",
+			methods: {
+				btnclick: function() {
+					console.log("btnclick");
+					this.$emit("callparent", 99);
+				}
+			}
+		};
+		
+		new Vue({
+			el: "#app",
+			components: {
+				"comp" : comp
+			},
+			methods: {
+				"parent_method" : function(childvalue) {
+					console.log("childvalue", childvalue);
+				}
+			}
+		});
+	
+	
+	</script>
+
+
+</body>
+</html>

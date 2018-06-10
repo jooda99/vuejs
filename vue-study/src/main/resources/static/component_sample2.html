@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+	<div id="app">
+		<child-comp v-bind:vardata="msg"></child-comp>
+	</div>
+
+	<script src="/js/vue.js"></script>
+	<script>
+
+		Vue.component("child-comp", {
+			props: ["vardata"],
+			template: "<div> parentdata : {{ vardata }}</div>"
+		});
+		
+		new Vue({
+			el: "#app",
+			data: {
+				msg: "#app의 msg 속성값 입니다."
+			}
+		});
+	
+	</script>
+
+
+</body>
+</html>
